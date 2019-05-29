@@ -4,7 +4,9 @@ import java.util.Calendar;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -13,7 +15,8 @@ import javax.persistence.TemporalType;
 @Table(name = "contatos")
 public class Contato {
 	@Id
-	@GeneratedValue
+	@SequenceGenerator(allocationSize = 1, name = "Cont-Seq", initialValue = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Cont-Seq")
 	private int id;
 	private String nome;
 	private String email;
