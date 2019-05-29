@@ -10,7 +10,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "Contatos")
+@Table(name = "contatos")
 public class Contato {
 	@Id
 	@GeneratedValue
