@@ -33,9 +33,9 @@
 					<td align="center"><fmt:formatDate
 							value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy" />
 					<td align="center"><a
-						href="controlador?logica=AlteraContato&id=${contato.id}">Alterar</a></td>
+						href="controlador?logica=GetContato&id=${contato.id}">Alterar</a></td>
 					<td align="center"><a
-						href="controlador?logica=RemoveContato&id=${contato.id}">Excluir</a></td>
+						href="controlador?logica=RemoverContato&id=${contato.id}">Excluir</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
