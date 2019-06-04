@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import br.com.agenda.max.modelo.Contato;
+import jdk.nashorn.internal.runtime.regexp.JoniRegExp.Factory;
 
 public class ContatoDAO {
 	private EntityManagerFactory fabrica;
@@ -33,5 +34,27 @@ public class ContatoDAO {
 		manager.close();
 		fabrica.close();
 		return contatos;
+	}
+
+	public Contato getContato(int id) {
+		Contato contato = manager.find(Contato.class, id);
+		return contato;
+	}
+
+	public void removerContato(String id) {
+		Contato contato = getContato(Integer.parseInt(id));
+		manager.getTransaction().begin();
+		manager.remove(contato);
+		manager.getTransaction().commit();
+		manager.close();
+		fabrica.close();
+	}
+	
+	public void atualizarContato(Contato contato) {
+		manager.getTransaction().begin();
+		manager.merge(contato);
+		manager.getTransaction().commit();
+		manager.close();
+		fabrica.close();
 	}
 }
